@@ -1,0 +1,5 @@
+Category,Accuracy,Precision,Recall (Sensitivity),F1-score,AUC
+Overall,0.469 (0.426–0.51),N/A,N/A,N/A,N/A
+Macro Average,N/A,0.333 (0.333–0.333),0.185 (0.171–0.199),0.238 (0.226–0.25),N/A
+Micro Average,N/A,0.748 (0.709–0.787),0.556 (0.512–0.598),0.637 (0.6–0.673),N/A
+Weighted Average,N/A,1.0 (1.0–1.0),0.556 (0.512–0.598),0.714 (0.677–0.749),N/A

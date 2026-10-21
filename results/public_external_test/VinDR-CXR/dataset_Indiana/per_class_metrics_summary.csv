@@ -1,0 +1,4 @@
+Class,Prevalence,Sensitivity (Recall),Specificity,PPV (Precision),NPV,F1-score,AUC,AP
+pneumothorax,0.7% (28/3822),0.251 (0.097–0.421),0.982 (0.978–0.986),0.096 (0.032–0.173),0.994 (0.992–0.997),0.138 (0.048–0.235),0.851 (0.787–0.906),0.07 (0.026–0.143)
+support_devices,0.0% (0/3822),N/A,1.0 (1.0–1.0),N/A,1.0 (1.0–1.0),N/A,N/A,N/A
+no_finding,0.0% (0/3822),N/A,0.302 (0.288–0.317),N/A,1.0 (1.0–1.0),N/A,N/A,N/A

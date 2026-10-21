@@ -1,0 +1,13 @@
+Class,Target Metric,Target Value,Achieved Metric,Achieved Value,Actual Precision,Threshold,Actual Recall
+pneumothorax,Precision,0.850,Recall,0.259,0.853,0.881,N/A
+pneumothorax,Precision,0.900,Recall,0.107,0.923,0.971,N/A
+pneumothorax,Precision,0.950,Recall,0.018,1.000,0.995,N/A
+pneumothorax,Recall,0.800,Precision,0.714,N/A,0.274,0.804
+pneumothorax,Recall,0.850,Precision,0.653,N/A,0.149,0.857
+pneumothorax,Recall,0.900,Precision,0.601,N/A,0.074,0.902
+no_finding,Precision,0.850,Recall,0.000,1.000,0.993,N/A
+no_finding,Precision,0.900,Recall,0.000,1.000,0.993,N/A
+no_finding,Precision,0.950,Recall,0.000,1.000,0.993,N/A
+no_finding,Recall,0.800,Precision,0.307,N/A,0.473,0.814
+no_finding,Recall,0.850,Precision,0.277,N/A,0.260,0.884
+no_finding,Recall,0.900,Precision,0.269,N/A,0.234,0.907

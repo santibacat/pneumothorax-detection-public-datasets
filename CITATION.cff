@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this code or the models, please cite the paper."
+title: "Pneumothorax detection on public chest X-ray datasets"
+authors:
+  - family-names: "Ibañez Caturla"
+    given-names: "Santiago"
+  - family-names: "Berná Mestre"
+    given-names: "Juan de Dios"
+  - family-names: "Martinez Mozos"
+    given-names: "Oscar"
+license: Apache-2.0
+preferred-citation:
+  type: article
+  title: "Towards Automatic Detection of Pneumothorax in Emergency Care with Deep Learning Using Multi-Source Chest X-ray Data"
+  authors:
+    - family-names: "Ibañez Caturla"
+      given-names: "Santiago"
+    - family-names: "Berná Mestre"
+      given-names: "Juan de Dios"
+    - family-names: "Martinez Mozos"
+      given-names: "Oscar"
+  journal: "Future Internet"
+  volume: 17
+  issue: 7
+  year: 2025
+  doi: "10.3390/fi17070292"
+  url: "https://www.mdpi.com/1999-5903/17/7/292"

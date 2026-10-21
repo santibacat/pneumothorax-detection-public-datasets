@@ -1,0 +1,50 @@
+[project]
+name = "cxr-pneumothorax"
+version = "1.0"
+description = "Easy interaction with chest x-ray datasets for pneumothorax classification"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "keras==2.15.0",
+    # CUDA libraries are pulled in on Linux so the GPU works out of the box
+    "tensorflow[and-cuda]==2.15.1; sys_platform == 'linux'",
+    "tensorflow==2.15.1; sys_platform != 'linux'",
+    "matplotlib==3.9.2",
+    "numpy==1.26.4",
+    "opencv-python>=4.6",
+    "pandas>=2",
+    "pillow>=10",
+    "scikit-learn>=1.2",
+    "seaborn>=0.13",
+    "tqdm>=4.67.1",
+    "wandb>=0.18.5",
+    "pydicom",
+    "xmltodict",
+    "ipywidgets",
+    "IPython",
+    "h5py",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["cxr"]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.11.11",
+    "jupyterlab",
+    "ipykernel",
+]
+
+[tool.ruff]
+# Set the maximum line length to 79.
+line-length = 79
+
+[tool.ruff.lint]
+# Add the `line-too-long` rule to the enforced rule set. By default, Ruff omits rules that
+# overlap with the use of a formatter, like Black, but we can override this behavior by
+# explicitly adding the rule.
+extend-select = ["E501"]

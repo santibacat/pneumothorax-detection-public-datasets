@@ -1,0 +1,10 @@
+                 precision    recall  f1-score   support
+
+   pneumothorax      0.856     0.688     0.762       112
+support_devices      0.000     0.000     0.000         0
+     no_finding      0.492     0.698     0.577        43
+
+      micro avg      0.690     0.690     0.690       155
+      macro avg      0.449     0.462     0.446       155
+   weighted avg      0.755     0.690     0.711       155
+    samples avg      0.522     0.502     0.507       155
