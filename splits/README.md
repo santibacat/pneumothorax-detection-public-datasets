@@ -13,6 +13,7 @@ These files contain **only identifiers and split assignments**: no labels, age, 
 | `filepath` | Image path relative to the datasets root |
 | `split` | `train` (660,329 images) or `valid` (27,535 images) |
 | `in_multisource_training_set` | `True` for the images that were used to train the multisource model |
+| `in_singlesource_training_set` | `True` for the images used to train the singlesource model of the image's own dataset |
 
 The split is stratified by patient on pneumothorax presence, independently within each dataset (no patient appears in both `train` and `valid`). The multisource model was trained on a rebalanced version of the training split: every pneumothorax-positive image was used twice and the negatives were undersampled to a 4:1 ratio, giving 358,410 training entries from 322,569 unique images. `in_multisource_training_set` marks those unique images (see [`docs/methodology.md`](../docs/methodology.md)).
 
@@ -20,10 +21,10 @@ The split is stratified by patient on pneumothorax presence, independently withi
 
 | Model | Training images | Validation images |
 |---|---|---|
-| Multisource | Exactly identified: `split == "train"` and `in_multisource_training_set` (358,410 entries, 322,569 unique images, positives used twice) | `split == "valid"` (27,535) |
-| Singlesource (NIH, CheXpert, MIMIC-CXR, PadChest, SIIM-ACR, VinDr-CXR) | A rebalanced subset of the `train` images of the model's own dataset. Only the sizes are known (generator logs): NIH 65,647; CheXpert 110,759; MIMIC-CXR 123,600; PadChest 49,493; SIIM-ACR 9,275; VinDr-CXR 8,090 | `split == "valid"` images of the model's own dataset |
+| Multisource | `split == "train"` and `in_multisource_training_set` (358,410 entries, 322,569 unique images, positives used twice) | `split == "valid"` (27,535) |
+| Singlesource (NIH, CheXpert, MIMIC-CXR, PadChest, SIIM-ACR, VinDr-CXR) | `in_singlesource_training_set` for the model's own dataset. Entries (positives used twice) / unique images: NIH 65,647 / 60,611; CheXpert 110,759 / 93,797; MIMIC-CXR 123,600 / 112,806; PadChest 49,493 / 49,100; SIIM-ACR 9,275 / 6,703; VinDr-CXR 8,090 / 8,006 | `split == "valid"` images of the model's own dataset |
 
-For the multisource model the training list comes directly from the checkpoint file used by the run. For the singlesource models the negatives were randomly undersampled with the global (unseeded) NumPy generator, so the exact subset was not saved and cannot be regenerated, so only the dataset-level `train`/`valid` assignment is available; the validation images and the evaluation sets are exactly identified for all models.
+All models share the same patient-level `train`/`valid` assignment; the singlesource models use the part of it that belongs to their dataset. The training lists come from the checkpoint files of the runs: the multisource model and the CheXpert, MIMIC-CXR, PadChest, SIIM-ACR and VinDr-CXR singlesource models used the rebalanced file `all_train_df_balanced_ckpt3.csv` (filtered by dataset for the latter), while the NIH singlesource model used `all_train_df_balanced_ckpt3_2.csv` filtered to NIH. The training sizes match the ones reported in the logs of the runs. The negatives were selected by random undersampling with the global (unseeded) NumPy generator, so the selection cannot be regenerated with the code, but it is recorded in these flags.
 
 ## `external_test.csv.gz`
 

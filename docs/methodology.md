@@ -4,7 +4,7 @@ This document describes the procedure followed in the notebook [`notebooks/train
 
 It was reconstructed from the code, the execution counters, the saved outputs, the checkpoint CSV files and the helper functions of the `cxr` package. The notebook is not a clean linear execution: it contains resumed runs, alternative experiments and results from more than one session. For that reason the text distinguishes the **main flow** (the one that produced the released model), **later experimental branches** (discarded) and **older results that must not be mixed with it**. The log of the released model's run (Weights & Biases id `771kvn05`) reports 358,410 training images and 27,535 validation images, which confirms the main flow described below.
 
-The six *singlesource* models were trained with the same recipe on each dataset alone (notebooks `5.3.x`).
+The six *singlesource* models were trained with the same recipe on each dataset alone (notebooks `5.3.x`; see section 5 for the exact training files).
 
 ## Training objective
 
@@ -136,7 +136,9 @@ The resulting checkpoint, `all_train_df_balanced_ckpt3.csv`, contains 358,410 en
 
 The file contains 35,841 duplicated paths, corresponding to the oversampling of all positives.
 
-The notebook also created an alternative, `all_train_df_balanced_ckpt3_2.csv`, with 409,442 entries and a positive proportion of 17.5%. This was a later experimental branch and was not used for the released model.
+The notebook also created an alternative, `all_train_df_balanced_ckpt3_2.csv`, with 409,442 entries and a positive proportion of 17.5%. This was a later experimental branch and was not used for the multisource model.
+
+The singlesource models used the same files filtered by dataset: the CheXpert, MIMIC-CXR, PadChest, SIIM-ACR and VinDr-CXR models were trained on `all_train_df_balanced_ckpt3.csv` and the NIH model on `all_train_df_balanced_ckpt3_2.csv` (65,647 NIH entries). The training sizes reported in the logs of the runs match these files exactly (NIH 65,647; CheXpert 110,759; MIMIC-CXR 123,600; PadChest 49,493; SIIM-ACR 9,275; VinDr-CXR 8,090).
 
 ## 6. Image preparation
 
